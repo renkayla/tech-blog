@@ -1,0 +1,26 @@
+<!-- home.handlebars -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tech Blog - Home</title>
+  </head>
+  <body>
+    <header>
+      <!-- Implement the header section -->
+    </header>
+    <main>
+      <!-- Implement the section to display blog posts -->
+      {{#each posts}}
+        <div class="post">
+          <h2>{{title}}</h2>
+          <p>{{createdAt}}</p>
+          <p>{{content}}</p>
+        </div>
+      {{/each}}
+    </main>
+    <footer>
+      <!-- Implement the footer section -->
+    </footer>
+  </body>
+</html>
