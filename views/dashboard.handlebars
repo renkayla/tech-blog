@@ -8,14 +8,36 @@
   <body>
     <header>
       <!-- Implement the header section -->
+      <h1>Tech Blog - Dashboard</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
       <!-- Implement the section to display the user's dashboard -->
       <h1>Welcome, {{username}}!</h1>
       <!-- Implement other dashboard elements -->
+      {{#if posts.length}}
+        {{#each posts}}
+          <article>
+            <h2>{{title}}</h2>
+            <p>{{content}}</p>
+            <p>Created by {{user.username}} on {{createdAt}}</p>
+            <a href="/post/{{id}}">Read More</a>
+          </article>
+        {{/each}}
+      {{else}}
+        <p>No blog posts found.</p>
+      {{/if}}
     </main>
     <footer>
       <!-- Implement the footer section -->
+      <p>&copy; 2023 Tech Blog. All rights reserved. Created by Kayla Nichols</p>
     </footer>
+    <script src="/js/main.js" defer></script>
   </body>
 </html>

@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <title>Tech Blog</title>
     <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Tech Blog</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                {{#if isAuthenticated}}
-                    <li><a href="/dashboard">Dashboard</a></li>
-                    <li><a href="/logout">Logout</a></li>
-                {{else}}
-                    <li><a href="/signup">Sign Up</a></li>
-                    <li><a href="/login">Login</a></li>
-                {{/if}}
-            </ul>
-        </nav>
+      <h1>Tech Blog</h1>
+      <nav>
+        <ul>
+          <li><a id="Home" href="/homepage">Home</a></li>
+          {{#if isAuthenticated}}
+            <li><a id="Dashboard" href="/dashboard">Dashboard</a></li>
+            <li><a id="Logout" href="/logout">Logout</a></li>
+          {{else}}
+            <li><a id="Sign-Up" href="#">Sign Up</a></li>
+            <li><a id="Login" href="/login">Login</a></li>
+            <li><button id="sign-up-button">Sign Up</button></li>
+            <li><button id="sign-in-button">Sign Up</button></li>
+            <li><a id="homepage-link">Homepage</a></li>
+            <li><a id="dashboard-link">Dashboard</li>
+            <li><a id="logout-link">Logout</a></li>
+          {{/if}}
+           
+        </ul>
+      </nav>
     </header>
-
     <main>
-        {{#if posts.length}}
-            {{#each posts}}
-                <article>
-                    <h2>{{title}}</h2>
-                    <p>{{content}}</p>
-                    <p>Created by {{user.username}} on {{createdAt}}</p>
-                    <a href="/post/{{id}}">Read More</a>
-                </article>
-            {{/each}}
-        {{else}}
-            <p>No blog posts found.</p>
-        {{/if}}
+      {{#if posts.length}}
+        {{#each posts}}
+          <article>
+            <h2>{{title}}</h2>
+            <p>{{content}}</p>
+            <p>Created by {{user.username}} on {{createdAt}}</p>
+            <a href="/post/{{id}}">Read More</a>
+          </article>
+        {{/each}}
+      {{else}}
+        <p>No blog posts found.</p>
+      {{/if}}
     </main>
-
     <footer>
-        <p>&copy; 2023 Tech Blog. All rights reserved. Created by Kayla Nichols</p>
+      <p>&copy; 2023 Tech Blog. All rights reserved. Created by Kayla Nichols</p>
     </footer>
     <script src="/js/main.js" defer></script>
-</body>
+  </body>
 </html>
