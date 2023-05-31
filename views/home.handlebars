@@ -8,6 +8,25 @@
   <body>
     <header>
       <!-- Implement the header section -->
+      <h1>Tech Blog - Home</h1>
+      <nav>
+        <ul>
+          <li><a id="Home" href="/homepage">Home</a></li>
+          <li><a id="Sign-Up" href="#">Sign Up</a></li>
+          <li><button id="sign-up-button">Sign Up</button>
+</li>
+          {{#if isAuthenticated}}
+            <li><a id="Dashboard" href="/dashboard">Dashboard</a></li>
+            <li><a id="Logout" href="/logout">Logout</a></li>
+          {{else}}
+            <li><a id="Login" href="/login">Login</a></li>
+          {{/if}}
+          <!-- Add the following elements with their respective IDs -->
+          <!--<li><a href="#" id="homepage-link">Homepage Link</a></li>
+          <li><a href="#" id="other-link1">Other Link 1</a></li>
+          <li><a href="#" id="other-link2">Other Link 2</a></li> -->
+        </ul>
+      </nav>
     </header>
     <main>
       <!-- Implement the section to display blog posts -->
@@ -17,10 +36,16 @@
           <p>{{createdAt}}</p>
           <p>{{content}}</p>
         </div>
+      {{else}}
+        <p>No blog posts found.</p>
       {{/each}}
     </main>
     <footer>
       <!-- Implement the footer section -->
+      <p>&copy; 2023 Tech Blog. All rights reserved. Created by Kayla Nichols</p>
     </footer>
+
+    <!-- Include your JavaScript file that contains the main.js code -->
+    <script src="main.js"></script>
   </body>
 </html>

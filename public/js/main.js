@@ -1,8 +1,5 @@
 
 
-
-            
-
 document.addEventListener('DOMContentLoaded', () => {
     // Add active class to the current navigation link
     const currentPath = window.location.pathname;
@@ -18,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 1 HOMEPAGE NAVIGATION \\
 
 // Add a click event listener to the homepage option
-document.getElementById('homepage-link').addEventListener('click', function() {
+document.getElementById('Home').addEventListener('click', function() {
     window.location.href = '/homepage'; // Redirect to the homepage URL
   });
   
@@ -28,10 +25,10 @@ document.getElementById('homepage-link').addEventListener('click', function() {
             // 2 PROMPT FOR SIGN-UP OR SIGN-IN \\
 
   // Add click event listeners to other links in the navigation bar
-document.getElementById('other-link1').addEventListener('click', function() {
+document.getElementById('Sign-Up').addEventListener('click', function() {
     checkAuthentication(); // Check if the user is signed in
   });
-  document.getElementById('other-link2').addEventListener('click', function() {
+  document.getElementById('Login').addEventListener('click', function() {
     checkAuthentication(); // Check if the user is signed in
   });
   
