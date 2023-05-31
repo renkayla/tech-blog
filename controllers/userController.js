@@ -1,7 +1,7 @@
-// userController.js
+import { Router } from 'express';
+import User from '../models/User.js';
 
-const router = require('express').Router();
-const { User } = require('../models'); // Adjust the path based on your project structure
+const router = Router();
 
 // Define the sign-up route
 router.post('/signup', async (req, res) => {
@@ -68,4 +68,4 @@ router.post('/signout', (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

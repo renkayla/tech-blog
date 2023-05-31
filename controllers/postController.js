@@ -1,7 +1,9 @@
-// postController.js
+import { Router } from 'express';
+import  Post  from '../models/Post.js';
+import  User  from '../models/User.js';
+import  Comment  from '../models/Comment.js';
 
-const router = require('express').Router();
-const { Post, User, Comment } = require('../models'); // Adjust the paths based on your project structure
+const router = Router();
 
 // Define the route to create a new blog post
 router.post('/create', async (req, res) => {
@@ -73,4 +75,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

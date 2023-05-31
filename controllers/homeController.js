@@ -1,7 +1,7 @@
-// homeController.js
+import { Router } from 'express';
+import { Post, User, Comment } from '../index.js';
 
-const router = require('express').Router();
-const { Post, User, Comment } = require('../models'); // Adjust the paths based on your project structure
+const router = Router();
 
 // Define the homepage route
 router.get('/', async (req, res) => {
@@ -11,11 +11,13 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
+          as: 'user', // Specify the alias 'user' for the User model
           attributes: ['username'],
         },
         {
           model: Comment,
-          include: [{ model: User, attributes: ['username'] }],
+          include: [{ model: User, as: 'user', attributes: ['username'] }], // Specify the alias 'user' for the User model
+          as: 'comments', // Specify the alias 'comments' for the Comment model
         },
       ],
     });
@@ -28,4 +30,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
