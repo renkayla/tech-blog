@@ -1,13 +1,11 @@
-// Post.js
-
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../config/connection.js';
+import User from './User.js';
 
 class Post extends Model {}
 
 Post.init(
   {
-    // Define the fields/columns for the Post model
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -22,7 +20,14 @@ Post.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    // Add other fields as per your requirements
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
@@ -32,4 +37,10 @@ Post.init(
   }
 );
 
-module.exports = Post;
+// Define the associations
+Post.belongsTo(User, {
+  foreignKey: 'user_id',
+  as: 'user',
+});
+
+export default Post;

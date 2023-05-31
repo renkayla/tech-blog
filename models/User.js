@@ -1,13 +1,10 @@
-// User.js
-
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../config/connection.js';
 
 class User extends Model {}
 
 User.init(
   {
-    // Define the model attributes
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -27,10 +24,9 @@ User.init(
   {
     sequelize,
     timestamps: false,
-    freezeTableName: true,
     underscored: true,
     modelName: 'user',
   }
 );
 
-module.exports = User;
+export default User;

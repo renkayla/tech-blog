@@ -1,13 +1,12 @@
-// Comment.js
-
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../config/connection.js';
+import User from './User.js';
+import Post from './Post.js';
 
 class Comment extends Model {}
 
 Comment.init(
   {
-    // Define the fields/columns for the Comment model
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -18,7 +17,22 @@ Comment.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    // Add other fields as per your requirements
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
+    post_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'post',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
@@ -28,4 +42,20 @@ Comment.init(
   }
 );
 
-module.exports = Comment;
+// Define the associations
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+  as: 'user',
+});
+
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id',
+  as: 'post',
+});
+
+Post.hasMany(Comment, {
+  foreignKey: 'post_id',
+  as: 'comments',
+});
+
+export default Comment;
