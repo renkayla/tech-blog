@@ -1,16 +1,13 @@
-// config.json
-
 {
-    "development": {
-      "username": "root",
-      "password": "Cortez10!!",
-      "database": "tech_blog_db",
-      "host": "localhost",
-      "dialect": "mysql"
-    },
-    "production": {
-      "use_env_variable": "JAWSDB_URL",
-      "dialect": "mysql"
-    }
+  "development": {
+    "username": "root",
+    "password": "Cortez10!!",
+    "database": "tech_blog_db",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
   }
-  
+}
